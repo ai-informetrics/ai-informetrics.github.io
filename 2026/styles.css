@@ -1,0 +1,219 @@
+/* AII-EEKE 2026 custom styles — clean, responsive, accessible */
+/* Font stack kept system-safe; drop in webfonts if desired */
+:root{
+  --bg:#0b1020;
+  --ink:#0f172a;
+  --muted:#475569;
+  --brand:#ef4444;
+  --brand-2:#e03244;
+  --brand-3:#e03244;
+  --paper:#ffffff;
+  --soft:#f1f5f9;
+  --ring: rgba(59,130,246,0.35);
+  --radius: 18px;
+  --shadow: 0 10px 30px rgba(2,6,23,.15);
+}
+
+*{box-sizing:border-box}
+html,body{margin:0;padding:0}
+body{
+  font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Noto Sans", "Apple Color Emoji", "Segoe UI Emoji";
+  color:var(--ink);
+  background:linear-gradient(180deg, var(--soft), #fff 45%, #fff);
+  line-height:1.6;
+  -webkit-font-smoothing:antialiased;
+  text-rendering:optimizeLegibility;
+}
+
+.container{
+  max-width:1100px;
+  margin-inline:auto;
+  padding: clamp(16px, 2vw, 28px);
+}
+
+.header{
+  position:sticky; top:0; z-index:40;
+  backdrop-filter:saturate(150%) blur(7px);
+  background: rgba(255,255,255,0.85);
+  border-bottom:1px solid #e2e8f0;
+}
+.nav{
+  display:flex; gap:5px; align-items:center; justify-content:space-between;
+}
+.nav a.brand{
+  font-weight:800; letter-spacing:.3px; text-decoration:none; color:var(--ink);
+}
+.nav .links{display:flex; gap:14px; flex-wrap:wrap}
+.nav .links a{
+  text-decoration:none; color:#334155; font-weight:600; padding:.5rem .75rem; border-radius:999px;
+}
+.nav .links a:hover, .nav .links a:focus{background:#e2e8f0; outline:2px solid transparent; outline-offset:2px}
+.nav .cta{
+  background:var(--brand-3); color:white; border:none; padding:.55rem .9rem; border-radius:20px;
+  box-shadow: var(--shadow); text-decoration:none; font-weight:700;
+}
+.hero{
+  background: radial-gradient(1200px 500px at right -200px top -300px, #e0f2fe 10%, transparent 60%),
+              radial-gradient(800px 300px at left -100px bottom -200px, #fee2e2 10%, transparent 60%);
+  border-bottom: 1px solid #e5e7eb;
+}
+.hero .hero-card{
+  background:var(--paper);
+  border-radius: var(--radius);
+  padding: clamp(18px, 3vw, 32px);
+  box-shadow: var(--shadow);
+  display:grid; gap:12px;
+}
+.badge{
+  display:inline-flex; align-items:center; gap:8px;
+  padding:.35rem .65rem; border-radius:999px; font-size:.9rem; font-weight:700;
+  color:#0f172a; background:#f1f5f9; border:1px solid #e2e8f0;
+}
+.badge .dot{width:8px;height:8px;border-radius:999px;background:var(--brand)}
+h1{font-size: clamp(28px, 4vw, 44px); line-height:1.15; margin:8px 0}
+h2{font-size: clamp(22px, 3vw, 32px); margin: 28px 0 12px}
+h3{font-size: clamp(18px, 2vw, 24px); margin: 18px 0 8px}
+p.lead{font-size: clamp(16px, 2vw, 18px); color:var(--muted)}
+
+.cards{ display:grid; grid-template-columns: repeat(auto-fit, minmax(260px,1fr)); gap:16px }
+.card{
+  background:var(--paper); border-radius:var(--radius); padding:18px; box-shadow:var(--shadow); border:1px solid #e5e7eb;
+}
+
+.section{padding: 15px 0}
+.kicker{ text-transform:uppercase; letter-spacing: .12em; font-size:.78rem; color:#64748b; font-weight:800}
+
+.table-wrap{ overflow:auto; border-radius:14px; border:1px solid #e2e8f0; box-shadow: var(--shadow); background:var(--paper) }
+table{
+  width:100%; border-collapse: collapse; min-width: 640px;
+}
+th, td{ padding: 12px 14px; border-bottom: 1px solid #e5e7eb; vertical-align: top }
+thead th{ background:#f8fafc; text-align:left; font-weight:800 }
+tbody tr:hover{ background:#f8fafc }
+.table-note{ font-size:.9rem; color:#64748b; margin-top:8px }
+
+.callout{
+  display:grid; gap:10px; background: linear-gradient(180deg, #f8fafc, #fff);
+  border:1px dashed #cbd5e1; padding:16px; border-radius:14px
+}
+.grid-2{ display:grid; gap:18px; grid-template-columns: repeat(auto-fit, minmax(300px,1fr)) }
+
+.footer{
+  margin-top:40px; padding:24px 0; border-top:1px solid #e2e8f0; color:#475569; background:#fafafa
+}
+.footer a{ color:#0f172a; }
+
+.tag{
+  display:inline-flex; align-items:center; gap:8px; padding:.3rem .6rem; margin-top: 10px;
+  border-radius:999px; border:1px solid #e2e8f0; background:#fff; font-size:.9rem;
+}
+
+.btn{
+  display:inline-block; text-decoration:none; border-radius:12px; padding:.7rem 1rem; font-weight:800;
+  border:1px solid #a50d25; color:#a50d25; background:#fff;
+}
+.btn:hover{background:#fff5f6}
+.btn.alt{ border-color:#e03244; background:#e03244 }
+.btn.light{ border-color:#e2e8f0; background:#fff; color:#0f172a }
+
+/* Accessibility focus ring */
+a:focus, button:focus, .btn:focus, .nav .links a:focus{ outline: 3px solid var(--ring); outline-offset:2px; border-radius:10px }
+
+/* Code-ish blocks for examples */
+.pre{
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  background:#0f172a; color:#e5e7eb; padding:14px; border-radius:10px; overflow:auto
+}
+
+@media (prefers-color-scheme: dark){
+  body{ background: radial-gradient(800px 400px at 20% 10%, #0b132b 5%, transparent 40%), #0f172a; color:#e2e8f0 }
+  .hero .hero-card, .card, .table-wrap, .callout{ background:#111827; border-color:#1f2937 }
+  .nav{ background:rgba(17,24,39,.7) }
+  .nav a.brand, .footer a{ color:#e5e7eb }
+  thead th{ background:#0b132b }
+  tbody tr:hover{ background:#0b132b }
+  .footer{ background:#0b132b; color:#94a3b8 }
+}
+
+/* === Hyperlinks (compatible with AII-EEKE 2026 theme) === */
+/* Base link style for content areas (avoid nav/btns/tags) */
+main :where(p, li, td, dd, h1, h2, h3, h4) a:not(.btn):not(.cta):not(.tag):not(.brand):not(.nav a){
+  --link: var(--brand-3);
+  color: var(--link);
+  text-decoration-line: underline;
+  text-decoration-thickness: 2px;
+  text-underline-offset: 3px;
+  text-decoration-color: rgba(59,130,246,.35); /* soft underline */
+  transition: color .2s ease, text-decoration-color .2s ease, box-shadow .2s ease;
+}
+main :where(p, li, td, dd, h1, h2, h3, h4) a:not(.btn):not(.cta):not(.tag):not(.brand):not(.nav a):hover{
+  text-decoration-color: currentColor;
+}
+main :where(p, li, td, dd, h1, h2, h3, h4) a:not(.btn):not(.cta):not(.tag):not(.brand):not(.nav a):focus-visible{
+  outline: 0;
+  box-shadow: 0 0 0 4px var(--ring);
+  border-radius: 6px;
+  text-decoration-color: currentColor;
+}
+main :where(p, li, td, dd, h1, h2, h3, h4) a:not(.btn):not(.cta):not(.tag):not(.brand):not(.nav a):active{
+  opacity:.9;
+}
+
+/* Utility: explicit link class if you prefer <a class="link"> */
+.link{
+  --link: var(--brand-3);
+  color: var(--link);
+  text-decoration: none;
+  position: relative;
+}
+.link::after{
+  content:"";
+  position:absolute; left:0; right:0; bottom:-2px; height:2px;
+  background: currentColor; transform: scaleX(0); transform-origin:left;
+  opacity:.7; transition: transform .25s ease;
+}
+.link:hover::after, .link:focus-visible::after{ transform: scaleX(1) }
+
+/* Variant: muted link (for notes/footers) */
+.link-muted{ --link:#64748b; color:var(--link) }
+.link-muted:hover{ color:#475569 }
+
+/* Variant: high-contrast (on dark or colored surfaces) */
+.link-contrast{ --link:#fff; color:var(--link) }
+.link-contrast::after{ background:#fff }
+
+/* Variant: arrow link with subtle motion */
+.link-arrow{ padding-right:.15rem }
+.link-arrow::after{
+  content:"→"; margin-left:.25rem; display:inline-block;
+  transform: translateX(-4px); transition: transform .2s ease;
+}
+.link-arrow:hover::after, .link-arrow:focus-visible::after{ transform: translateX(0) }
+
+/* External link indicator: add rel="external" */
+a[rel~="external"]:not(.btn):not(.cta):after{
+  content:"↗"; font-size:.9em; margin-left:.25rem; opacity:.8;
+}
+
+/* Chip-style link (good for resource tags) */
+.link-chip{
+  display:inline-flex; align-items:center; gap:.4rem;
+  padding:.35rem .6rem; border-radius:999px;
+  border:1px solid #e2e8f0; background:#fff; color:var(--ink);
+  text-decoration:none; transition: transform .16s ease, box-shadow .2s ease;
+}
+.link-chip:hover{ transform: translateY(-1px); box-shadow: var(--shadow) }
+
+@media (prefers-color-scheme: dark){
+  main :where(p, li, td, dd, h1, h2, h3, h4) a:not(.btn):not(.cta):not(.tag):not(.brand):not(.nav a){
+    text-decoration-color: rgba(96,165,250,.45);
+  }
+  .link-chip{ background:#0f172a; border-color:#1f2937; color:#e5e7eb }
+}
+
+/* Adds vertical space between items */
+.long-list{
+  display: grid;          /* or: display:flex; flex-direction:column; */
+  gap: 0.6rem;            /* space between <li> */
+}
+
