@@ -207,6 +207,70 @@ p.lead{
   gap:0.6rem;
 }
 
+/* Keynote speaker feature */
+.keynote-card{
+  display:grid;
+  grid-template-columns: 240px 1fr;
+  gap: clamp(18px, 3vw, 30px);
+  align-items:start;
+  background:
+    linear-gradient(135deg, rgba(239,68,68,.08), rgba(248,250,252,.92) 38%, #fff 100%);
+  border:1px solid #e5e7eb;
+  border-radius:var(--radius);
+  box-shadow:var(--shadow);
+  padding: clamp(18px, 3vw, 30px);
+}
+
+.keynote-media{
+  position:relative;
+  justify-self:center;
+  width:200px;
+  height:240px;
+  border-radius:16px;
+  overflow:hidden;
+  background:#f8fafc;
+  border:1px solid #e2e8f0;
+}
+
+.keynote-media img{
+  width:100%;
+  height:100%;
+  display:block;
+  object-fit:cover;
+  object-position:center top;
+}
+
+.keynote-content{
+  display:grid;
+  gap:10px;
+}
+
+.keynote-content h3{
+  margin:2px 0 0;
+  color:#0f172a;
+}
+
+.keynote-content h4{
+  margin:8px 0 4px;
+  font-size: clamp(19px, 2.2vw, 26px);
+  line-height:1.25;
+  color:#a50d25;
+}
+
+.keynote-content p{
+  margin:0;
+}
+
+.keynote-affiliation{
+  color:var(--muted);
+  font-weight:700;
+}
+
+.keynote-content .btn{
+  justify-self:start;
+  margin-top:8px;
+}
+
 /* =========================
    5) Tables
    ========================= */
@@ -471,6 +535,21 @@ a[rel~="external"]:not(.btn):not(.cta):after{
 
   /* Tables: allow scroll; keep min-width but don't force huge if you prefer */
   table{ min-width: 640px; }
+
+  .keynote-card{
+    grid-template-columns:1fr;
+  }
+
+  .keynote-media{
+    width:min(320px, 100%);
+    max-width:200px;
+    height:240px;
+    justify-self:center;
+  }
+
+  .keynote-media img{
+    height:100%;
+  }
 }
 
 @media (max-width: 640px){
@@ -552,11 +631,24 @@ a[rel~="external"]:not(.btn):not(.cta):after{
 
   .hero .hero-card,
   .card,
+  .keynote-card,
   .table-wrap,
   .callout{
     background:#111827;
     border-color:#1f2937;
   }
+
+  .keynote-card{
+    background:linear-gradient(135deg, rgba(224,50,68,.18), #111827 38%, #111827 100%);
+  }
+
+  .keynote-media{
+    background:#0f172a;
+    border-color:#1f2937;
+  }
+
+  .keynote-content h3{ color:#e5e7eb; }
+  .keynote-content h4{ color:#fca5a5; }
 
   .header{
     background: rgba(17,24,39,.7);
